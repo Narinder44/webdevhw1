@@ -11,20 +11,28 @@ body {
     background-color: #f4f4f4;
 }
 
+/* Flexbox for header */
 header {
     background-color: #333;
     color: #fff;
     padding: 10px 0;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav ul {
+    display: flex; /* Make navigation a flex container */
     list-style-type: none;
+    justify-content: center; /* Center the nav items */
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0; /* Remove margin for the last item */
 }
 
 nav ul li a {
@@ -32,15 +40,23 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Flexbox for main content */
 main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center the content vertically */
+    align-items: center; /* Center the content horizontally */
     padding: 20px;
     background-color: #fff;
     margin: 20px auto;
     max-width: 800px;
 }
 
+/* Footer using Flexbox */
 footer {
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     background-color: #333;
     color: #fff;
@@ -58,8 +74,14 @@ p {
     margin-bottom: 20px;
 }
 
+/* Flexbox for form */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
 form label {
-    display: block;
     margin-bottom: 5px;
 }
 
@@ -78,17 +100,65 @@ form input[type="submit"] {
 }
 
 .my-interests img {
-    width: 100%; /* or a specific width like 600px */
+    width: 100%;
     max-width: 600px;
-    height: auto; /* maintain aspect ratio */
+    height: auto;
     display: block;
-    margin: 0 auto; /* center the image */
+    margin: 0 auto;
 }
 
 .about-me-img {
-    width: 100%; /* or a specific width like 300px */
+    width: 100%;
     max-width: 300px;
-    height: auto; /* maintain aspect ratio */
+    height: auto;
     display: block;
-    margin: 0 auto; /* center the image */
+    margin: 0 auto;
+}
+
+/* Media Queries */
+
+/* For tablets (768px or less) */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    footer {
+        position: static;
+    }
+}
+
+/* For mobile phones (480px or less) */
+@media (max-width: 480px) {
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    main {
+        margin: 5px;
+        padding: 10px;
+    }
+
+    form input, form textarea {
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 5px;
+    }
+
+    .my-interests img,
+    .about-me-img {
+        max-width: 100%;
+    }
 }
